@@ -1,6 +1,6 @@
 {
 	"name": "string-value-transformer",
-	"version": "1.0.0",
+	"version": "1.1.0",
 	"description": "transforms string to other types of values and vice versa safely",
 	"author": "Arumi Sakura",
 	"license": "MIT",

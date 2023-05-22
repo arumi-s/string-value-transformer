@@ -3,6 +3,7 @@ import { TransformDate } from './date';
 describe('TransformDate', () => {
 	it('should return an empty string when value is undefined, null, or 0', () => {
 		expect(TransformDate({ value: '' })).toStrictEqual('');
+		expect(TransformDate({ value: 'x' })).toStrictEqual('x');
 		expect(TransformDate({ value: undefined })).toStrictEqual('');
 		expect(TransformDate({ value: null })).toStrictEqual('');
 		expect(TransformDate({ value: 0 })).toStrictEqual('');
@@ -18,5 +19,10 @@ describe('TransformDate', () => {
 		expect(TransformDate({ value: '2020-02-18' })).toStrictEqual('2020-02-18');
 		expect(TransformDate({ value: '2020-02-19' })).toStrictEqual('2020-02-19');
 		expect(TransformDate({ value: '2020-02-20' })).toStrictEqual('2020-02-20');
+	});
+
+	it('should return an empty string when value is invalid date', () => {
+		expect(TransformDate({ value: new Date('x') })).toStrictEqual('');
+		expect(TransformDate({ value: new Date(NaN) })).toStrictEqual('');
 	});
 });
